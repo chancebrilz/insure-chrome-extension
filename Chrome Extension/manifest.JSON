@@ -1,0 +1,24 @@
+{
+	"manifest_version" : 2,
+	"name": "TBD",
+	"description" : "Chrome extension for the prevention of accidental visits to malicous websites",
+	"version" : "1",
+	"author" : "Taylor McLaughlin, Chance Brilz, Deep Patel, Daniel Schwarz, Anthony Panei",
+
+	"browser_action":{
+		"default_icon" : "tabicon.png",
+		"default_popup" : "popup.html",
+		"default_title" : "TBD"
+	},
+
+	"background":{
+		"scripts" : ["controller.js"],
+		"persistent" : false
+	},
+
+	"permissions" :[
+		"background",
+		"webNavigation",
+		"tabs"]
+
+}
