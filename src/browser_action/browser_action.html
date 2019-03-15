@@ -1,17 +1,25 @@
 <!doctype html>
-<style type="text/css">
-	#mainPopup {
-		padding: 10px;
-		height: 200px;
-		width: 400px;
-		font-family: Helvetica, Ubuntu, Arial, sans-serif;
-	}
-	h1 {
-		font-size: 2em;
-	}
-</style>
-
-<div id="mainPopup">
-<h1>Hello extensionizr!</h1>
-<p>To shut this popup down, edit the manifest file and remove the "default popup" key. To edit it, just edit ext/browser_action/browser_action.html. The CSS is there, too.</p>
-</div>
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+<head>
+	<title>ThirdEye Detection</title>
+</head>
+<body>
+	<div class="modal-header">
+		<h1 class="logo">
+			<img src="/icons/thirdeye_logo.png" alt="ThirdEye" class="logo-icon"> ThirdEye Detection <span class = "version">(0.0.1)</span>
+		</h1>
+	</div>
+	<div class="desc">
+		<p>Welcome to ThirdEye, the AI-powered malicious URL detector!</p>
+	</div>
+	<div class="toggle-switch">Enable/Disable Extension
+		<label class="switch">
+  		<input type="checkbox" checked>
+  		<span class="slider round"></span>
+		</label>
+	</div>
+	<div class="settings-button">
+		<a href="/src/browser_action/settings_page.html" target="_blank" class="button">Whitelist Preferences</a>
+	</div>
+</body>
+</html>
