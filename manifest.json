@@ -8,11 +8,8 @@
     "128": "icons/thirdeye_icon_128.png",
     "150": "icons/thirdeye_logo.png"
   },
-  "default_locale": "en",
   "background": {
-    "scripts": [
-      "src/bg/background.js"
-    ],
+    "scripts": ["src/bg/background.js"],
     "persistent": true
   },
   "options_page": "src/options_custom/index.html",
@@ -21,27 +18,15 @@
     "default_title": "browser action demo",
     "default_popup": "src/browser_action/browser_action.html"
   },
-  "permissions": [
-    "contentSettings",
-    "cookies",
-    "https://*/*"
-  ],
+  "permissions": ["contentSettings", "cookies", "https://*/*"],
   "content_scripts": [
     {
-      "matches": [
-        "https://www.google.com/*"
-      ],
-      "css": [
-        "src/inject/inject.css"
-      ]
+      "matches": ["https://www.google.com/*"],
+      "css": ["src/inject/inject.css"]
     },
     {
-      "matches": [
-        "https://www.google.com/*"
-      ],
-      "js": [
-        "src/inject/inject.js"
-      ]
+      "matches": ["https://www.google.com/*"],
+      "js": ["src/inject/inject.js"]
     }
   ]
 }
