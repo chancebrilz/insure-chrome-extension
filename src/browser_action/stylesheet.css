@@ -1,17 +1,52 @@
-#mainPopup {
-  padding: 10px;
-  height: 200px;
-  width: 400px;
+@import "styles/bootstrap.css";
+
+body,
+html {
   font-family: Helvetica, Ubuntu, Arial, sans-serif;
+  font-size: 16px;
 }
+
+#mainPopup {
+  padding: 1rem 0.75rem;
+  min-width: 300px;
+  text-align: center;
+}
+
 h1 {
   font-size: 2em;
+  margin: 0;
 }
-.switch {
+
+.logo img {
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+.logo .version {
+  display: block;
+  font-size: 1rem;
+  color: #777;
+  line-height: 2;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.toggle-switch label {
+  cursor: pointer;
+  margin: 0;
+}
+
+.toggle-switch .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin: 0 10px 0 0;
 }
 
 .switch input {
@@ -28,8 +63,8 @@ h1 {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -40,16 +75,16 @@ h1 {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {
@@ -65,4 +100,8 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.section:not(:last-of-type) {
+  margin-bottom: 10px;
 }
