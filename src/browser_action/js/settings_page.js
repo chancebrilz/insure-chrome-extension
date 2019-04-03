@@ -37,6 +37,7 @@ function updateWhitelist(){
     var node = document.createElement("LI");
      var button = document.createElement("SPAN");
      button.setAttribute("id", "close_button");
+     //TODO: button.addEventListener("click", removeElement);
      var textnode = document.createTextNode(whitelist_arr[i]);
      node.appendChild(textnode);
      node.appendChild(button);
@@ -56,7 +57,7 @@ function updateWhitelist(){
   	localStorage.setItem('blacklist', JSON.stringify(blacklist_arr));
     updateBlacklist();
   }
-  
+
 //Display the current blacklist to HTML
   function updateBlacklist(){
     //clear local_blacklist_table
@@ -71,6 +72,7 @@ function updateWhitelist(){
       var node = document.createElement("LI");
        var button = document.createElement("SPAN");
        button.setAttribute("id", "close_button");
+       //TODO: button.addEventListener("click", removeElement);
        var textnode = document.createTextNode(blacklist_arr[i]);
        node.appendChild(textnode);
        node.appendChild(button);
