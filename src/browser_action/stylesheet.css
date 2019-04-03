@@ -105,3 +105,22 @@ input:checked + .slider:before {
 .section:not(:last-of-type) {
   margin-bottom: 10px;
 }
+
+#local_pref{
+  margin: 20px;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  border: 1px solid #ddd;
+}
+
+ul li {
+  padding: 8px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}

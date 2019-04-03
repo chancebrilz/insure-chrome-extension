@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <head>
   <title>Settings</title>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <h1>Local Settings</h1>
-  <form action="/action_page.php">
-  Add URL to local blacklist:<br>
-  <input type="text" name="local_blacklist" value="">
-  <br>
-  Add URL to local whitelist:<br>
-  <input type="text" name="local_whitelist" value="">
-  <br><br>
-  <input type="submit" value="Submit">
-</form>
+  <div id="local_pref">
+    <h1>Local Settings</h1>
+    <form action="/action_page.php">
+    Add URL to local blacklist:<br>
+    <input type="text" name="local_blacklist" value="">
+
+    <input type="submit" value="Submit">
+  </form>
+    <br>
+    <ul id="local_blacklist_table">
+      <li>google.com</li>
+      <li>amazon.com</li>
+      <li>twitter.com</li>
+    </ul>
+    <form action="/action_page.php">
+    Add URL to local whitelist:<br>
+    <input type="text" name="local_whitelist" value="">
+
+    <input type="submit" value="Submit">
+    </form>
+    <br>
+    <ul id="local_whitelist_table">
+      <li>google.com</li>
+      <li>amazon.com</li>
+      <li>twitter.com</li>
+    </ul>
+  </div>
 </body>
 </html>
