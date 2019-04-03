@@ -110,17 +110,37 @@ input:checked + .slider:before {
   margin: 20px;
 }
 
-ul{
+ul {
+  min-width: 100px;
+  max-width: 500px;
   list-style-type: none;
-  padding: 0;
-  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 0;
 }
 
 ul li {
-  padding: 8px 16px;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
 }
 
-ul li:last-child {
-  border-bottom: none;
+ul li:hover {
+  background-color: #eee;
 }
+
+#close_button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 12px 16px;
+  transform: translate(0%, -50%);
+}
+
+#close_button:hover {background: #bbb;}
