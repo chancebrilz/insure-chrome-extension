@@ -14,22 +14,37 @@
 //   ["blocking"]
 // );
 
-chrome.tabs.onUpdated.addListener(function(tabId, info) {
-  if (info.status === "complete") {
-    chrome.tabs.get(tabId, function(tab) {
-      const { url } = tab;
+class API {
+  apiHost = "http://cosc490.chance.sh/";
 
-      // HERE WE CAN CHECK FOR A VALID/INVALID URL
-      console.log("Checking url", url, "...");
+  getHost(url) {
+    var pathArray = url.split("/");
 
-      if (url === "https://www.google.com/") {
-        chrome.tabs.create(
-          {
-            url: "/src/browser_action/warning_page.html"
-          },
-          function() {}
-        );
-      }
-    });
+    return pathArray[2];
   }
+
+  lookup(lookupUrl) {
+    const host = this.getHost(lookupUrl);
+    const url = `${this.apiHost}?url=${host}`;
+
+    return fetch(url).then(response => response.json());
+  }
+}
+
+chrome.tabs.onUpdated.addListener((tabId, info) => {
+  chrome.tabs.get(tabId, async tab => {
+    const { url } = tab;
+
+    if (url) {
+      const api = new API();
+
+      const response = await api.lookup(url);
+
+      if (response.malicious === true) {
+        chrome.tabs.update(tabId, {
+          url: "/src/browser_action/warning_page.html"
+        });
+      }
+    }
+  });
 });
