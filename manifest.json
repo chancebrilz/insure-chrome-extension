@@ -18,7 +18,7 @@
     "default_title": "browser action demo",
     "default_popup": "src/browser_action/browser_action.html"
   },
-  "permissions": ["contentSettings", "cookies", "https://*/*"],
+  "permissions": ["contentSettings", "cookies", "https://*/*", "tabs"],
   "content_scripts": [
     {
       "matches": ["https://www.google.com/*"],
