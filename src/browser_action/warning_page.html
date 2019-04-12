@@ -1,11 +1,39 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>WARNING</title>
+  <title>Warning</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1><center><font color = "red">MALICIOUS SITE WARNING</font></center></h1>
-	<label><center>You are attempting to view a site Chrome has deemed "malicious"<br/><br/></center></label>
-	<center><button id="GoBack">Go Back</button></center>
-	<script src = "/src/browser_action/warningpage.js"></script>
-	<center><button type ="Continue to Site" class="btn btn-default">Continue to Site</button></center>
+
+<style>
+.jumbotron { 
+  background-color: #b5b5b5; 
+  color: #ed0000;
+  padding: 50px 25px;
+}
+
+.container-fluid{
+	background-color: #ffff;
+	color: #0c0c0c;
+	padding: 50px 25px;
+}
+</style>
+
+<div class="jumbotron text-center">
+  <h1><center>MALICIOUS SITE WARNING</center></h1>
+</div>
+
+
+<div class="container-fluid text-center">
+	<label><font size = "5">You are attempting to view a site Chrome has deemed "malicious"</font></label>
+	<center><button id="GoBack" class = "btn btn-primary btn-md">Go Back</button>&nbsp&nbsp&nbsp<button id = "continue" class = "btn btn-primary btn-md">Continue to Site</button></center>
+	<script src = "/src/browser_action/warningpage.js"></script> 
+</div>
+
 </body>
+</html>
