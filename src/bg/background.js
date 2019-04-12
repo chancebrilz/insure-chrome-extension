@@ -47,11 +47,20 @@ chrome.tabs.onUpdated.addListener((tabId, info) => {
     const { url } = tab;
 
     if (url) {
+      // Check if the URL is the whitelist or blacklist
+
       const api = new API();
+
+      const host = api.getHost(url);
+
+      // check if host is in whitelist, if it is return
+
+      // check if in backlist, then do [1]
 
       const response = await api.lookup(url);
 
       if (response && response.malicious === true) {
+        // [1]
         chrome.tabs.update(tabId, {
           url: "/src/browser_action/warning_page.html"
         });
