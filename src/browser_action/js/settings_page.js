@@ -9,7 +9,6 @@ if(localStorage.getItem('blacklist') != null){
 //Submit Buttons
 document.getElementById('submit_to_whitelist_btn').addEventListener('click', submitToWhitelist);
 document.getElementById('submit_to_blacklist_btn').addEventListener('click', submitToBlacklist);
-document.getElementById('whitelist').addEventListener('click', submitToBlacklist);
 
 //When button clicked, push new URL to localStorage
 function submitToWhitelist(){

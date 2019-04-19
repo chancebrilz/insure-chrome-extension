@@ -46,31 +46,40 @@ chrome.tabs.onUpdated.addListener((tabId, info) => {
   chrome.tabs.get(tabId, async tab => {
     const { url } = tab;
 
+	
     if (url) {
       // Check if the URL is the whitelist or blacklist
 
       const api = new API();
 
       const host = api.getHost(url);
+	  
 
 	//Fetch and parse whitelist and blacklist from local storage
 	  var wl_arr = JSON.parse(localStorage.getItem('whitelist'));
 	  var bl_arr = JSON.parse(localStorage.getItem('blacklist'));
-	
-	//Search whitelist for matching url
-	for(int i = 0; i < wl_arr.length; i++){
-		if(wl_arr[i] == url){
-			//URL is in whitelist, so disregard
-			return;
+	//console.log(bl_arr);
+	console.log(host);
+	if(host !== null){
+		if(wl_arr !== null){
+		//Search whitelist for matching url
+			for(var i = 0; i < wl_arr.length; i++){
+				if(wl_arr[i] == host || host == "www." + wl_arr[i]){
+					//URL is in whitelist, so disregard
+					return;
+				}
+			}
 		}
-	}
-	//Search blacklist for matching url
-	for(int j = 0; j < bl_arr.length; j++){
-		if(bl_arry[i] ==  url){
-			//Redirect to warning page
-			chrome.tabs.update(tabId, {
-				url: "/src/browser_action/warning_page.html"
-			});
+		if(bl_arr !== null ){
+			//Search blacklist for matching url
+			for(var j = 0; j < bl_arr.length; j++){
+				if(bl_arr[j] == host || host == ("www." + bl_arr[j])){
+					//Redirect to warning page
+					chrome.tabs.update(tabId, {
+						url: "/src/browser_action/warning_page.html"
+					});
+				}
+			}
 		}
 	}
 
