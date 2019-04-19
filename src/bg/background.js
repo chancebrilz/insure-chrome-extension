@@ -53,9 +53,27 @@ chrome.tabs.onUpdated.addListener((tabId, info) => {
 
       const host = api.getHost(url);
 
-      // check if host is in whitelist, if it is return
+	//Fetch and parse whitelist and blacklist from local storage
+	  var wl_arr = JSON.parse(localStorage.getItem('whitelist'));
+	  var bl_arr = JSON.parse(localStorage.getItem('blacklist'));
+	
+	//Search whitelist for matching url
+	for(int i = 0; i < wl_arr.size; i++){
+		if(wl_arr[i] == url){
+			//URL is in whitelist, so disregard
+			return;
+		}
+	}
+	//Search blacklist for matching url
+	for(int j = 0; j < bl_arr.size; j++){
+		if(bl_arry[i] ==  url){
+			//Redirect to warning page
+			chrome.tabs.update(tabId, {
+				url: "/src/browser_action/warning_page.html"
+			});
+		}
+	}
 
-      // check if in backlist, then do [1]
 
       const response = await api.lookup(url);
 
