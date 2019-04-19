@@ -58,14 +58,14 @@ chrome.tabs.onUpdated.addListener((tabId, info) => {
 	  var bl_arr = JSON.parse(localStorage.getItem('blacklist'));
 	
 	//Search whitelist for matching url
-	for(int i = 0; i < wl_arr.size; i++){
+	for(int i = 0; i < wl_arr.length; i++){
 		if(wl_arr[i] == url){
 			//URL is in whitelist, so disregard
 			return;
 		}
 	}
 	//Search blacklist for matching url
-	for(int j = 0; j < bl_arr.size; j++){
+	for(int j = 0; j < bl_arr.length; j++){
 		if(bl_arry[i] ==  url){
 			//Redirect to warning page
 			chrome.tabs.update(tabId, {
