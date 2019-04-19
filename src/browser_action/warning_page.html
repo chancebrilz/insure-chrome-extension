@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <head>
   <title>Warning</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+</head>
+<body>
+
 
 <style>
 .jumbotron { 
@@ -32,16 +32,12 @@
 <div class="container-fluid text-center">
 	<label><font size = "5">You are attempting to view a site Chrome has deemed "malicious"</font></label>
 	<center><button id="GoBack" class = "btn btn-primary btn-md">Go Back</button>&nbsp&nbsp&nbsp<button id = "continue" class = "btn btn-primary btn-md">Continue to Site</button></center>
-	<script src = "/src/browser_action/warningpage.js"></script> 
   <label><font size = "5">Tired of seeing this? Add URL to Whitelist</font></label><br>
   <input type="text" id = "local_whitelist_text" name="local_whitelist" value="">
 
-    <button id = "submit_to_whitelist_btn">Submit</button>
+    <button id = "whitelist" class = "btn btn-primary btn-md">Submit</button>
     <br>
-    <ul id="local_whitelist_table">
-      <li> </li>
-    </ul>
-  <script src = "/src/browser_action/js/settings_page.js"></script>
+  <script src = "/src/browser_action/warningpage.js"></script> 
 </div>
 
 </body>
