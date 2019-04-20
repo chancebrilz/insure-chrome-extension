@@ -6,6 +6,10 @@ html {
   font-size: 16px;
 }
 
+centered {
+  text-align: center;
+}
+
 #mainPopup {
   padding: 1rem 0.75rem;
   min-width: 300px;
@@ -111,6 +115,10 @@ input:checked + .slider:before {
 }
 
 ul {
+  text-align: left;
+  width: 40%;
+  position:relative;
+  left: 32.5%;
   min-width: 100px;
   max-width: 500px;
   list-style-type: none;
