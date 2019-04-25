@@ -40,17 +40,19 @@ function updateWhitelist(){
    }
    var whitelist_arr = JSON.parse(localStorage.getItem('whitelist'));
    //loop through whitelist_arr and append elements to local_whitelist_table
-   for(var i = 0; i < whitelist_arr.length; i++){
-    var node = document.createElement("LI");
-     var button = document.createElement("SPAN");
-     button.setAttribute("id", "close_button");
-     button.setAttribute("class", "wl_close");
-     //TODO: button.addEventListener("click", removeElement);
-     var textnode = document.createTextNode(whitelist_arr[i]);
-     node.appendChild(textnode);
-     node.appendChild(button);
-     button.innerHTML = "&times;"
-     document.getElementById("local_whitelist_table").appendChild(node);
+   if(whitelist_arr !== null){
+     for(var i = 0; i < whitelist_arr.length; i++){
+      var node = document.createElement("LI");
+       var button = document.createElement("SPAN");
+       button.setAttribute("id", "close_button");
+       button.setAttribute("class", "wl_close");
+       //TODO: button.addEventListener("click", removeElement);
+       var textnode = document.createTextNode(whitelist_arr[i]);
+       node.appendChild(textnode);
+       node.appendChild(button);
+       button.innerHTML = "&times;"
+       document.getElementById("local_whitelist_table").appendChild(node);
+     }
    }
 }
 //When button clicked, push new URL to localStorage
@@ -82,17 +84,19 @@ function updateWhitelist(){
      }
      var blacklist_arr = JSON.parse(localStorage.getItem('blacklist'));
      //loop through blacklist_arr and append elements to local_blacklist_table
-     for(var i = 0; i < blacklist_arr.length; i++){
-      var node = document.createElement("LI");
-       var button = document.createElement("SPAN");
-       button.setAttribute("id", "close_button");
-       button.setAttribute("class", "bl_close");
-       //TODO: button.addEventListener("click", removeElement);
-       var textnode = document.createTextNode(blacklist_arr[i]);
-       node.appendChild(textnode);
-       node.appendChild(button);
-       button.innerHTML = "&times;"
-       document.getElementById("local_blacklist_table").appendChild(node);
+     if(blacklist_arr !== null){
+       for(var i = 0; i < blacklist_arr.length; i++){
+        var node = document.createElement("LI");
+         var button = document.createElement("SPAN");
+         button.setAttribute("id", "close_button");
+         button.setAttribute("class", "bl_close");
+         //TODO: button.addEventListener("click", removeElement);
+         var textnode = document.createTextNode(blacklist_arr[i]);
+         node.appendChild(textnode);
+         node.appendChild(button);
+         button.innerHTML = "&times;"
+         document.getElementById("local_blacklist_table").appendChild(node);
+       }
      }
   }
 
