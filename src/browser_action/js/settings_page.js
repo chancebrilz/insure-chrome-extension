@@ -18,9 +18,13 @@ function submitToWhitelist(){
   var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
   var url = element.match(expression);
   if(whitelist_arr == null){
-    whitelist_arr = [url]
+    if(url !== null){
+      whitelist_arr = [url]
+    }
   }else{
-	 whitelist_arr.push(url);
+    if(url !== null){
+	     whitelist_arr.push(url);
+     }
    }
    localStorage.setItem('whitelist', JSON.stringify(whitelist_arr));
    updateWhitelist();
@@ -56,9 +60,13 @@ function updateWhitelist(){
     var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
     var url = element.match(expression);
     if(blacklist_arr == null){
-      blacklist_arr = [url]
+      if(url !== null){
+        blacklist_arr = [url];
+      }
     }else{
+      if(url !== null){
   	 blacklist_arr.push(url);
+   }
     }
   	localStorage.setItem('blacklist', JSON.stringify(blacklist_arr));
     updateBlacklist();
