@@ -46,6 +46,12 @@ chrome.tabs.onUpdated.addListener((tabId, info) => {
   chrome.tabs.get(tabId, async tab => {
     const { url } = tab;
 
+     ////////TAYLOR IS BREAKING STUFF
+    var site = url;
+    chrome.runtime.sendMessage({site});
+	
+
+  ////////////TAYLOR IS DONE BREAKING STUFF
 	
     if (url) {
       // Check if the URL is the whitelist or blacklist
