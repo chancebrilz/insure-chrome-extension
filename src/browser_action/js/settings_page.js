@@ -15,19 +15,24 @@ document.getElementById('submit_to_blacklist_btn').addEventListener('click', sub
 function submitToWhitelist(){
 	var whitelist_arr = JSON.parse(localStorage.getItem('whitelist'));
   var element = document.getElementById("local_whitelist_text").value;
+  element = element.replace( /\n/g, " " );
+  var parse_wl_input = element.split(/\s+/);
+  //console.log(parse_wl_input);
   var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-  var url = element.match(expression);
-  if(whitelist_arr == null){
-    if(url !== null){
-      whitelist_arr = [url]
+  for(var i = 0; i < parse_wl_input.length; i++){
+    var url = element.match(expression);
+    if(whitelist_arr == null){
+      if(url !== null){
+        whitelist_arr = [url]
+      }
+    }else{
+      if(url !== null){
+	       whitelist_arr.push(url);
+      }
     }
-  }else{
-    if(url !== null){
-	     whitelist_arr.push(url);
-     }
-   }
-   localStorage.setItem('whitelist', JSON.stringify(whitelist_arr));
-   updateWhitelist();
+  }
+  localStorage.setItem('whitelist', JSON.stringify(whitelist_arr));
+  updateWhitelist();
 }
 
 //Display the current localStorage to HTML
