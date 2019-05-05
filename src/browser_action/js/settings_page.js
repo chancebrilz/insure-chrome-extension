@@ -59,6 +59,26 @@ function updateWhitelist(){
        document.getElementById("local_whitelist_table").appendChild(node);
      }
    }
+
+   var wl_closebtns = document.getElementsByClassName("wl_close");
+
+   //Assign clicklisteners to x buttons in whitelist
+   for(var i = 0; i < wl_closebtns.length; i++){
+       wl_closebtns[i].addEventListener('click', function removeWLItem(){
+       var temparr = JSON.parse(localStorage.getItem('whitelist'));
+       var unparsed_html = this.parentElement.innerHTML;
+       var parsed_html = unparsed_html.substring(0, unparsed_html.search("<span"));
+       for(var j = 0; j < temparr.length; j++){
+         console.log(parsed_html);
+         if(parsed_html == temparr[j]){
+           temparr.splice(j, 1);
+           console.log(temparr);
+         }
+       }
+       localStorage.setItem('whitelist', JSON.stringify(temparr));
+       updateWhitelist();
+     });
+   }
 }
 //When button clicked, push new URL to localStorage
   function submitToBlacklist(){
@@ -108,44 +128,22 @@ function updateWhitelist(){
          document.getElementById("local_blacklist_table").appendChild(node);
        }
      }
+     var bl_closebtns = document.getElementsByClassName("bl_close");
+     //Assign clicklisteners to x buttons in blacklist
+     for(var i = 0; i < bl_closebtns.length; i++){
+         bl_closebtns[i].addEventListener('click', function removeBLItem(){
+         var temparr = JSON.parse(localStorage.getItem('blacklist'));
+         var unparsed_html = this.parentElement.innerHTML;
+         var parsed_html = unparsed_html.substring(0, unparsed_html.search("<span"));
+         for(var j = 0; j < temparr.length; j++){
+           console.log(parsed_html);
+           if(parsed_html == temparr[j]){
+             temparr.splice(j, 1);
+             console.log(temparr);
+           }
+         }
+         localStorage.setItem('blacklist', JSON.stringify(temparr));
+         updateBlacklist();
+       });
+     }
   }
-
-var wl_closebtns = document.getElementsByClassName("wl_close");
-
-//Assign clicklisteners to x buttons in whitelist
-for(var i = 0; i < wl_closebtns.length; i++){
-    wl_closebtns[i].addEventListener('click', function removeWLItem(){
-    var temparr = JSON.parse(localStorage.getItem('whitelist'));
-    var unparsed_html = this.parentElement.innerHTML;
-    var parsed_html = unparsed_html.substring(0, unparsed_html.search("<span"));
-    for(var j = 0; j < temparr.length; j++){
-      console.log(parsed_html);
-      if(parsed_html == temparr[j]){
-        temparr.splice(j, 1);
-        console.log(temparr);
-      }
-    }
-    localStorage.setItem('whitelist', JSON.stringify(temparr));
-    updateWhitelist();
-  });
-}
-
-var bl_closebtns = document.getElementsByClassName("bl_close");
-
-//Assign clicklisteners to x buttons in blacklist
-for(var i = 0; i < bl_closebtns.length; i++){
-    bl_closebtns[i].addEventListener('click', function removeBLItem(){
-    var temparr = JSON.parse(localStorage.getItem('blacklist'));
-    var unparsed_html = this.parentElement.innerHTML;
-    var parsed_html = unparsed_html.substring(0, unparsed_html.search("<span"));
-    for(var j = 0; j < temparr.length; j++){
-      console.log(parsed_html);
-      if(parsed_html == temparr[j]){
-        temparr.splice(j, 1);
-        console.log(temparr);
-      }
-    }
-    localStorage.setItem('blacklist', JSON.stringify(temparr));
-    updateBlacklist();
-  });
-}
