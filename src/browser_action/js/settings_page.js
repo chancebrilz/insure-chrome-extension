@@ -23,7 +23,7 @@ function submitToWhitelist(){
     var url = parse_wl_input[i].match(expression);
     if(whitelist_arr == null){
       if(url !== null){
-        whitelist_arr = [url]
+        whitelist_arr = [url];
       }
     }else{
       if(url !== null){
@@ -69,10 +69,8 @@ function updateWhitelist(){
        var unparsed_html = this.parentElement.innerHTML;
        var parsed_html = unparsed_html.substring(0, unparsed_html.search("<span"));
        for(var j = 0; j < temparr.length; j++){
-         console.log(parsed_html);
          if(parsed_html == temparr[j]){
            temparr.splice(j, 1);
-           console.log(temparr);
          }
        }
        localStorage.setItem('whitelist', JSON.stringify(temparr));
@@ -92,11 +90,19 @@ function updateWhitelist(){
       var url = parse_bl_input[i].match(expression);
       if(blacklist_arr == null){
         if(url !== null){
-          blacklist_arr = [url]
+          blacklist_arr = [url];
         }
       }else{
         if(url !== null){
-  	       blacklist_arr.push(url);
+
+          console.log("blacklist: " + blacklist_arr);
+          console.log("url: " + url);
+          for(var h = 0; h < blacklist_arr.length; h++){
+            if(blacklist_arr[h] == url){
+  	           return;
+             }
+          }
+          blacklist_arr.push(url);
         }
       }
     }
@@ -136,10 +142,8 @@ function updateWhitelist(){
          var unparsed_html = this.parentElement.innerHTML;
          var parsed_html = unparsed_html.substring(0, unparsed_html.search("<span"));
          for(var j = 0; j < temparr.length; j++){
-           console.log(parsed_html);
            if(parsed_html == temparr[j]){
              temparr.splice(j, 1);
-             console.log(temparr);
            }
          }
          localStorage.setItem('blacklist', JSON.stringify(temparr));
