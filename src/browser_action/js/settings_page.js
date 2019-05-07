@@ -27,7 +27,15 @@ function submitToWhitelist(){
       }
     }else{
       if(url !== null){
-	       whitelist_arr.push(url);
+        var count = 0;
+        for(var h = 0; h < whitelist_arr.length; h++){
+          if(whitelist_arr[h].toString() == url.toString()){
+             count++;
+           }
+        }
+        if(count == 0){
+          whitelist_arr.push(url);
+        }
       }
     }
   }
@@ -94,15 +102,15 @@ function updateWhitelist(){
         }
       }else{
         if(url !== null){
-
-          console.log("blacklist: " + blacklist_arr);
-          console.log("url: " + url);
+          var count = 0;
           for(var h = 0; h < blacklist_arr.length; h++){
-            if(blacklist_arr[h] == url){
-  	           return;
+            if(blacklist_arr[h].toString() == url.toString()){
+               count++;
              }
           }
-          blacklist_arr.push(url);
+          if(count == 0){
+            blacklist_arr.push(url);
+          }
         }
       }
     }
