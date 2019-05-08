@@ -34,7 +34,6 @@ if (!site) {
 }
 
 function continuebutton() {
-  alert(site);
   whitelistURL();
   chrome.tabs.update({ url: site });
 }
