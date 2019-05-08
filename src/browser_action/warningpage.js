@@ -1,6 +1,6 @@
 var site;
 
-document.getElementById('GoBack').addEventListener('click', () => history.back());
+document.getElementById('GoBack').addEventListener('click', () => history.go(-2);
 document.getElementById('continue').addEventListener('click', continuebutton);
 
 chrome.runtime.onMessage.addListener(
