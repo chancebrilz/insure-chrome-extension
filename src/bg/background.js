@@ -1,19 +1,3 @@
-//example of using a message handler from the inject scripts
-// chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
-//   //chrome.pageAction.show(sender.tab.id);
-//   sendResponse();
-// });
-
-// chrome.webRequest.onBeforeRequest.addListener(
-//   function(details) {
-//     return {
-//       redirectUrl: chrome.runtime.getURL("src/browser_action/warning_page.html")
-//     };
-//   },
-//   { urls: ["https://www.google.com/"], types: ["main_frame", "sub_frame"] }, //redirects users when going to google for testing purposes only
-//   ["blocking"]
-// );
-
 class API {
   apiHost = "http://cosc490.chance.sh/";
 
@@ -46,56 +30,49 @@ chrome.tabs.onUpdated.addListener((tabId, info) => {
   chrome.tabs.get(tabId, async tab => {
     const { url } = tab;
 
-     ////////TAYLOR IS BREAKING STUFF
     var site = url;
-    chrome.runtime.sendMessage({site});
-	
+    chrome.runtime.sendMessage({ site });
 
-  ////////////TAYLOR IS DONE BREAKING STUFF
-	
     if (url) {
       // Check if the URL is the whitelist or blacklist
 
       const api = new API();
-
       const host = api.getHost(url);
-	  
 
-	//Fetch and parse whitelist and blacklist from local storage
-	  var wl_arr = JSON.parse(localStorage.getItem('whitelist'));
-	  var bl_arr = JSON.parse(localStorage.getItem('blacklist'));
-	//console.log(bl_arr);
-	console.log(host);
-	if(host !== null){
-		if(wl_arr !== null){
-		//Search whitelist for matching url
-			for(var i = 0; i < wl_arr.length; i++){
-				if(wl_arr[i] == host || host == "www." + wl_arr[i]){
-					//URL is in whitelist, so disregard
-					return;
-				}
-			}
-		}
-		if(bl_arr !== null ){
-			//Search blacklist for matching url
-			for(var j = 0; j < bl_arr.length; j++){
-				if(bl_arr[j] == host || host == ("www." + bl_arr[j])){
-					//Redirect to warning page
-					chrome.tabs.update(tabId, {
-						url: "/src/browser_action/warning_page.html"
-					});
-				}
-			}
-		}
-	}
-
+      //Fetch and parse whitelist and blacklist from local storage
+      var wl_arr = JSON.parse(localStorage.getItem("whitelist"));
+      var bl_arr = JSON.parse(localStorage.getItem("blacklist"));
+      //console.log(bl_arr);
+      console.log(host);
+      if (host !== null) {
+        if (wl_arr !== null) {
+          //Search whitelist for matching url
+          for (var i = 0; i < wl_arr.length; i++) {
+            if (wl_arr[i] == host || host == "www." + wl_arr[i]) {
+              //URL is in whitelist, so disregard
+              return;
+            }
+          }
+        }
+        if (bl_arr !== null) {
+          //Search blacklist for matching url
+          for (var j = 0; j < bl_arr.length; j++) {
+            if (bl_arr[j] == host || host == "www." + bl_arr[j]) {
+              //Redirect to warning page
+              chrome.tabs.update(tabId, {
+                url: "/src/browser_action/warning_page.html"
+              });
+            }
+          }
+        }
+      }
 
       const response = await api.lookup(url);
 
       if (response && response.malicious === true) {
         // [1]
         chrome.tabs.update(tabId, {
-          url: "/src/browser_action/warning_page.html"
+          url: `/src/browser_action/warning_page.html?url=${url}`
         });
       }
     }

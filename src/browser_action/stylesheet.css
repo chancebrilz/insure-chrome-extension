@@ -110,14 +110,14 @@ input:checked + .slider:before {
   margin-bottom: 10px;
 }
 
-#local_pref{
+#local_pref {
   margin: 20px;
 }
 
 ul {
   text-align: left;
   width: 40%;
-  position:relative;
+  position: relative;
   left: 32.5%;
   min-width: 100px;
   max-width: 500px;
@@ -142,7 +142,9 @@ ul li:hover {
   background-color: #eee;
 }
 
-ul li:nth-child(even) {background-color: #CCC;}
+ul li:nth-child(even) {
+  background-color: #ccc;
+}
 
 #close_button {
   cursor: pointer;
@@ -157,7 +159,7 @@ ul li:nth-child(even) {background-color: #CCC;}
   background-color: #2196f3;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   color: white;
   padding: 10px 15px;
   text-align: center;
@@ -165,11 +167,14 @@ ul li:nth-child(even) {background-color: #CCC;}
   display: inline-block;
   font-size: 14px;
   margin: 4px 2px;
-  opacity: 0.6;
+  opacity: 0.75;
   transition: 0.3s;
+  cursor: pointer;
 }
 
-.button:hover {opacity: 1}
+.button:hover {
+  opacity: 1;
+}
 
 .button:active {
   background-color: #2196f3;
@@ -177,4 +182,10 @@ ul li:nth-child(even) {background-color: #CCC;}
   transform: translateY(4px);
 }
 
-#close_button:hover {background: #bbb;}
+.button[disabled] {
+  opacity: 0.5;
+}
+
+#close_button:hover {
+  background: #bbb;
+}
