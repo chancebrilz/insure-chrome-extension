@@ -17,35 +17,35 @@
 </style>
 
 <body class="content" >
-  <div id="local_pref" style="background-color: teal;">
+  <div id="local_pref">
     <h1>Local Settings</h1> <br><br>
 
-      <div style="width: 50%; height: 50%; background-color: white; float:left;">
-          <h5 >Add one or more URLs to local whitelist:</h5>
-          <textarea id = "local_whitelist_text" name="local_whitelist" rows="4" value=""></textarea>
-          <br>
-          <button id = "submit_to_whitelist_btn" class = "button">Submit</button>
-          <br>
-          <div style="overflow-x:auto;width: 90%; height: 50%; background-color: white; float:left;">
-              <ul id="local_whitelist_table" style="overflow: hidden; width: 300px; text-align: left; valign: bottom;">
-                <li> </li>
-              </ul>
-          </div>
+      <div class="settingsRow">
+        <div class="settingsCol">
+            <h3>Whitelist</h3>
+            <h6>Add one or more URLs:</h6>
+            <textarea id = "local_whitelist_text" name="local_whitelist" rows="4" value=""></textarea>
+            <button id = "submit_to_whitelist_btn" class = "button">Submit</button>
+            <div>
+                <ul id="local_whitelist_table">
+                  <li> </li>
+                </ul>
+            </div>
 
-      </div>
+        </div>
 
-       <div style="width: 50%; height: 50%; background-color: silver; float:left;">
-            <h5>Add one or more URLs to local blacklist:</h5>
-            <textarea id="local_blacklist_text" name="local_blacklist" rows = "4" value=""></textarea>
-            <br>
-            <button id="submit_to_blacklist_btn" class = "button">Submit</button>
-            <br>
-            <div style="overflow-x:auto;width: 90%; height: 50%; background-color: silver; float:left;">
-               <ul id="local_blacklist_table" style="overflow: hidden; width: 300px; text-align: left; valign: bottom;;">
-                <li> </li>
-               </ul>
-             </div>
+        <div class="settingsCol">
+              <h3>Blacklist</h3>
+              <h6>Add one or more URLs:</h6>
+              <textarea id="local_blacklist_text" name="local_blacklist" rows = "4" value=""></textarea>
+              <button id="submit_to_blacklist_btn" class = "button">Submit</button>
+              <div>
+                <ul id="local_blacklist_table">
+                  <li> </li>
+                </ul>
+              </div>
 
+        </div>
       </div>
   </div>
   <script src = "/src/browser_action/js/settings_page.js"></script>

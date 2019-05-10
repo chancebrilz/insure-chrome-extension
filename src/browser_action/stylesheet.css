@@ -116,13 +116,7 @@ input:checked + .slider:before {
 
 ul {
   text-align: left;
-  width: 40%;
-  position: relative;
-  left: 32.5%;
-  min-width: 100px;
-  max-width: 500px;
   list-style-type: none;
-  padding: 20px;
   margin: 0;
 }
 
@@ -188,4 +182,30 @@ ul li:nth-child(even) {
 
 #close_button:hover {
   background: #bbb;
+}
+
+.settingsRow {
+  display: flex;
+}
+
+.settingsCol {
+  width: 50%;
+  padding: 0 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.settingsCol button,
+.settingsCol textarea,
+.settingsCol ul {
+  display: block;
+  width: 100%;
+}
+
+.settingsCol ul {
+  margin: 20px 0 0 0;
+  padding: 0;
+  max-height: 500px;
+  overflow-y: scroll;
 }
